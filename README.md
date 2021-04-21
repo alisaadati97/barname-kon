@@ -1,1 +1,1 @@
-# barname-kon
+# open source flutter app inspired by doodle
