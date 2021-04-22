@@ -44,6 +44,7 @@ class _SignupPageState extends State<SignupPage> {
     );
 
     return Scaffold(
+      appBar: AppBar(title: Text("signup"),),
       backgroundColor: Colors.grey[100],
       body: SafeArea(
         child: Center(
