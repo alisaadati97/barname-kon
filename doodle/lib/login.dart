@@ -71,6 +71,15 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text("log in"),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 16.0),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/signup');
+                },
+                child: Text("Signup"),
+              ),
+            ),
           ],
         )),
       ),
