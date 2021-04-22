@@ -23,9 +23,10 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 100,
             ),
-            Text(
-              "doodle",
-              style: TextStyle(fontSize: 50, color: Colors.red[300]),
+            Image.asset(
+              "assets/doodle.png",
+              height: 150,
+              width: 220,
             ),
             SizedBox(
               height: 100,
