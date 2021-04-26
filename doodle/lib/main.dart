@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "login.dart";
 import "signup.dart";
+import 'profile.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -8,6 +9,7 @@ void main() {
     routes: {
       '/': (context) => HomePage(),
       '/signup': (context) => SignupPage(),
+      '/profile': (context) => ProfilePage(),
     },
   ));
 }
@@ -18,8 +20,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isloggedin = false;
   @override
   Widget build(BuildContext context) {
-    return LoginPage();
+    if (!isloggedin) {
+      return LoginPage();
+    } else {
+      return ProfilePage();
+    }
   }
 }
