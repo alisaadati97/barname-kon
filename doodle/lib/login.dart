@@ -24,20 +24,20 @@ class _LoginPageState extends State<LoginPage> {
     final response = await http.post(
       Uri.parse(url),
       headers: {
-      'Accept': '*/*',
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Accept-Encoding': 'gzip, deflate',
-      
-      'Connection': 'keep-alive',
-    },
-    body: {
-      "username":"ali",
-      "password":"ali123456"
-    },
+        'Accept': '*/*',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept-Encoding': 'gzip, deflate',
+        'Connection': 'keep-alive',
+      },
+      body: {"username": "ali", "password": "ali123456"},
     );
-    print(response.statusCode);
-    print(response.body);
-    //print(jsonDecode(response.body));
+    if (response.statusCode == 200) {
+      print(response.statusCode);
+      Navigator.pushReplacementNamed(context, '/profile');
+    }
+
+    //print(response.body);
+    //print(jsonDecode(response.body)["refresh"]);
   }
 
   @override

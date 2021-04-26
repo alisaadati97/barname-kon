@@ -23,10 +23,10 @@ class _HomePageState extends State<HomePage> {
   bool isloggedin = false;
   @override
   Widget build(BuildContext context) {
-    if (!isloggedin) {
-      return LoginPage();
-    } else {
+    if (isloggedin) {
       return ProfilePage();
+    } else {
+      return LoginPage();
     }
   }
 }
