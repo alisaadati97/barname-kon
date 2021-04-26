@@ -8,6 +8,8 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   String usernamefield = "";
   String passwordfield = "";
+  String namefield = "";
+  String emailfield = "";
 
   final logo = Image.asset(
     "assets/doodle.png",
@@ -43,6 +45,32 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
 
+  final name = TextFormField(
+      autofocus: false,
+      onChanged: (String value) {
+        namefield = value;
+      },
+      keyboardType: TextInputType.text,
+      decoration: InputDecoration(
+        hintText: 'name',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+    );
+
+    final email = TextFormField(
+      autofocus: false,
+      onChanged: (String value) {
+        emailfield = value;
+      },
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+        hintText: 'username',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+    );
+
     return Scaffold(
       appBar: AppBar(title: Text("signup"),),
       backgroundColor: Colors.grey[100],
@@ -57,7 +85,15 @@ class _SignupPageState extends State<SignupPage> {
             SizedBox(
               height: 50,
             ),
-            Text("singup"),
+            Text("SignUp"),
+            name,
+            SizedBox(
+              height: 20,
+            ),
+            email,
+            SizedBox(
+              height: 20,
+            ),
             username,
             SizedBox(
               height: 20,

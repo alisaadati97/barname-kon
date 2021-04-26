@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
     print(usernamefield);
     print(passwordfield);
     String url = "https://k.qbox.dev/v1/user/token/";
-    final response = await http.get(
+    final response = await http.post(
       Uri.parse(url),
       headers: {
       'Accept': '*/*',
@@ -29,6 +29,10 @@ class _LoginPageState extends State<LoginPage> {
       'Accept-Encoding': 'gzip, deflate',
       
       'Connection': 'keep-alive',
+    },
+    body: {
+      "username":"ali",
+      "password":"ali123456"
     },
     );
     print(response.statusCode);
