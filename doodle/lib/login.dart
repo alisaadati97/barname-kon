@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -14,6 +16,25 @@ class _LoginPageState extends State<LoginPage> {
     height: 150,
     width: 220,
   );
+
+  void logindata() async {
+    print(usernamefield);
+    print(passwordfield);
+    String url = "https://k.qbox.dev/v1/user/token/";
+    final response = await http.get(
+      Uri.parse(url),
+      headers: {
+      'Accept': '*/*',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Encoding': 'gzip, deflate',
+      
+      'Connection': 'keep-alive',
+    },
+    );
+    print(response.statusCode);
+    print(response.body);
+    //print(jsonDecode(response.body));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +65,9 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     return Scaffold(
-      appBar: AppBar(title: Text("login"),),
+      appBar: AppBar(
+        title: Text("login"),
+      ),
       backgroundColor: Colors.grey[100],
       body: SafeArea(
         child: Center(
@@ -65,10 +88,7 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: TextButton(
-                onPressed: () {
-                  print(usernamefield);
-                  print(passwordfield);
-                },
+                onPressed: logindata,
                 child: Text("log in"),
               ),
             ),
